@@ -10,7 +10,9 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1",
     "react-test-renderer": "^16.2.0",
-    "styled-components": "^3.1.6"
+    "so-fetch-js": "^0.3.0",
+    "styled-components": "^3.1.6",
+    "styled-media-query": "^2.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
