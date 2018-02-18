@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { fetchMovies } from './services/api';
+import MovieFinder from './containers/MovieFinder';
+import { Main } from './components/styles';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>My app</h1>
-      </div>
+      <Main>
+        <MovieFinder />
+      </Main>
     );
   }
 }
