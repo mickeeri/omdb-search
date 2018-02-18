@@ -4,3 +4,8 @@ body {
   background: #eee;
   font-family: 'Lato', sans-serif;
 }
+
+h1,
+h2 {
+  margin: 0;
+}

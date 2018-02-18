@@ -91,3 +91,12 @@ export const PosterPlaceholder = styled.div`
   align-items: center;
   text-align: center;
 `;
+
+export const MovieDetails = styled.div`
+  h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+`;
+
+export const Message = styled.div``;

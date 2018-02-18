@@ -1,17 +1,22 @@
 import fetch from 'so-fetch-js';
+import { stringify } from 'query-string';
 
-const API_URL = `http://www.omdbapi.com/?s=detroit&apikey=${
-  process.env.REACT_APP_OMDB_API_KEY
-}`;
+const API_URL = 'http://www.omdbapi.com/';
 
-export async function fetchMovies() {
-  const response = await fetch(API_URL);
+export async function fetchMovies(query = 'detroit') {
+  const queryStrings = {
+    apikey: process.env.REACT_APP_OMDB_API_KEY,
+    s: query,
+    type: 'movie',
+  };
 
-  if (response.isError) {
-    throw new Error({ response, message: 'Search failed' });
-  }
+  const response = await fetch(`${API_URL}?${stringify(queryStrings)}`);
 
   console.log(response);
 
-  return response;
+  if (response.isError) {
+    throw new Error(response);
+  }
+
+  return response.data.Search || [];
 }
