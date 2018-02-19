@@ -1,7 +1,7 @@
 import fetch from 'so-fetch-js';
 import { stringify } from 'query-string';
 
-const API_URL = 'http://www.omdbapi.com/';
+const API_URL = 'https://www.omdbapi.com/';
 
 export async function fetchMovies(query) {
   const queryStrings = {
