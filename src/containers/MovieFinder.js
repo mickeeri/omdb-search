@@ -58,27 +58,29 @@ class MovieFinder extends Component {
     // ombd properties are capitalized.
     const prop = capitalize(type);
 
-    function sortAsc(a, b) {
+    function byAsc(a, b) {
       return a[prop] >= b[prop] ? 1 : -1;
     }
 
-    function sortDesc(a, b) {
+    function byDesc(a, b) {
       return a[prop] >= b[prop] ? -1 : 1;
     }
 
     const prevOrder = order[type];
 
-    const ascOrder = !prevOrder.asc;
+    const sortAsc = !prevOrder.asc;
 
-    const sortedMovies = [...movies].sort(ascOrder ? sortAsc : sortDesc);
+    const sortedMovies = [...movies].sort(sortAsc ? byAsc : byDesc);
 
     // Update order for the current type and reset the other one.
-    const updateOrder = () => ({
-      year:
-        type === 'year' ? { active: true, asc: ascOrder } : yearDefaultOrder,
-      title:
-        type === 'title' ? { active: true, asc: ascOrder } : titleDefaultOrder,
-    });
+    const updateOrder = () => {
+      const activeOrder = { active: true, asc: sortAsc };
+
+      return {
+        year: type === 'year' ? activeOrder : yearDefaultOrder,
+        title: type === 'title' ? activeOrder : titleDefaultOrder,
+      };
+    };
 
     this.setState({
       ...state,
@@ -86,10 +88,6 @@ class MovieFinder extends Component {
       order: updateOrder(),
     });
   };
-
-  async componentDidMount() {
-    // this.handleSearch();
-  }
 
   render() {
     const { movies, isFetching, noResult, errorMessage, order } = this.state;

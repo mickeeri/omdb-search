@@ -3,9 +3,9 @@ import { stringify } from 'query-string';
 
 const API_URL = 'http://www.omdbapi.com/';
 
-export async function fetchMovies(query = 'detroit') {
+export async function fetchMovies(query) {
   const queryStrings = {
-    apikey: process.env.REACT_APP_OMDB_API_KEY,
+    apikey: '901124cd',
     s: query,
     type: 'movie',
   };
