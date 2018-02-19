@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import 'jest-enzyme';
 import MovieFinder from '../MovieFinder';
 import { fetchMovies } from '../../services/api';
 import MovieList from '../../components/MovieList';

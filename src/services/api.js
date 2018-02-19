@@ -12,8 +12,6 @@ export async function fetchMovies(query) {
 
   const response = await fetch(`${API_URL}?${stringify(queryStrings)}`);
 
-  console.log(response);
-
   if (response.isError) {
     throw new Error(response);
   }
