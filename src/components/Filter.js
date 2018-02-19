@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { func, bool } from 'prop-types';
-import { Input, Form, SearchButton, ClearButton } from './styles';
+import { Input, Form, SearchButton } from './styles';
 
 class Filter extends Component {
   state = {

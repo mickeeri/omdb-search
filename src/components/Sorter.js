@@ -1,4 +1,5 @@
 import React from 'react';
+import { func, shape, bool } from 'prop-types';
 import { SortItem } from './styles';
 
 const Sorter = ({ onSort, order: { title, year } }) => (
@@ -23,5 +24,13 @@ const Sorter = ({ onSort, order: { title, year } }) => (
     </SortItem>
   </div>
 );
+
+Sorter.propTypes = {
+  onSort: func.isRequired,
+  order: shape({
+    title: shape({ active: bool, asc: bool }),
+    year: shape({ active: bool, asc: bool }),
+  }),
+};
 
 export default Sorter;
