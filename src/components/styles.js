@@ -15,7 +15,7 @@ export const Main = styled.main`
   ${media.lessThan('medium')`
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 30px 15px;
   `};
 `;
 
@@ -25,22 +25,23 @@ export const Header = styled.h1`
   color: ${fontColor};
 `;
 
+export const Form = styled.form`
+  margin: 45px 0;
+  display: flex;
+`;
+
 export const Input = styled.input`
   padding: 9px;
   box-shadow: none;
   outline: none;
   border: 1px solid #e7e7e7;
-  width: 300px;
+  width: 80%;
   font-size: 18px;
 
   &:focus {
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
     border: 1px solid rgba(81, 203, 238, 1);
   }
-`;
-
-export const Form = styled.form`
-  margin: 45px 0;
 `;
 
 export const SearchButton = styled.button`
@@ -54,6 +55,7 @@ export const SearchButton = styled.button`
   border-radius: 0 3px 3px 0;
   transition: opacity 0.4s;
   font-size: 18px;
+  white-space: nowrap;
 
   &:hover {
     background: #0cb863;
