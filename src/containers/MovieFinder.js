@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header } from '../components/styles';
+import { Header, Alert } from '../components/styles';
 import Filter from '../components/Filter';
 import MovieList from '../components/MovieList';
 import { fetchMovies } from '../services/api';
@@ -39,13 +39,23 @@ class MovieFinder extends Component {
   }
 
   render() {
-    const { movies, isFetching } = this.state;
+    const { movies, isFetching, noResult, errorMessage } = this.state;
 
     return (
       <div>
-        <Header>Movie finder</Header>
+        <Header>OMDB movie search</Header>
         <Filter onSearch={this.handleSearch} isFetching={isFetching} />
         {movies && <MovieList movies={movies} />}
+        {noResult && (
+          <Alert>
+            <span>No result</span>
+          </Alert>
+        )}
+        {errorMessage && (
+          <Alert danger>
+            <span>{errorMessage}</span>
+          </Alert>
+        )}
       </div>
     );
   }

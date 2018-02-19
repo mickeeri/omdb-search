@@ -1,14 +1,13 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import 'jest-enzyme';
+import Message from '../../components/Message';
 import MovieFinder from '../MovieFinder';
 import { fetchMovies } from '../../services/api';
 import MovieList from '../../components/MovieList';
 
 jest.mock('../../services/api', () => ({
   fetchMovies: jest.fn(query => {
-    console.log(query);
-
     if (!query) {
       throw new Error();
     }
@@ -63,8 +62,9 @@ describe('handleSearch', () => {
     expect(movieFinder.state().errorMessage).toEqual('Search failed');
   });
 
-  it('should set "no result" text if result is empty', async () => {
-    await movieFinder.instance().handleSearch('lorem ipsum');
-    expect(movieFinder.state().noResult).toBe(true);
+  fit('should set "no result" text if result is empty', async () => {
+    const mf = mount(<MovieFinder />);
+    await mf.instance().handleSearch('lorem ipsum');
+    expect(mf.state().noResult).toBe(true);
   });
 });

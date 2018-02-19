@@ -1,12 +1,16 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
+
+const bgColor = '#eee';
+const borderColor = '#efd2d2';
+const fontColor = '#333';
 
 export const Main = styled.main`
   background: white;
   width: 50%;
   margin: 20px auto;
   padding: 30px;
-  border: 1px solid #efd2d2;
+  border: 1px solid ${borderColor};
 
   ${media.lessThan('medium')`
     width: 100%;
@@ -18,6 +22,7 @@ export const Main = styled.main`
 export const Header = styled.h1`
   margin: 0;
   letter-spacing: 1px;
+  color: ${fontColor};
 `;
 
 export const Input = styled.input`
@@ -67,11 +72,11 @@ export const MovieLink = styled.a`
   padding: 20px 10px;
   display: flex;
   cursor: pointer;
-  color: #333;
+  color: ${fontColor};
   text-decoration: none;
 
   &:hover {
-    background: #eee;
+    background: ${bgColor};
   }
 `;
 
@@ -82,7 +87,7 @@ export const Poster = styled.img`
 
 export const PosterPlaceholder = styled.div`
   height: 100px;
-  background: #eee;
+  background: ${bgColor};
   width: 73px;
   margin-right: 20px;
   color: grey;
@@ -99,4 +104,19 @@ export const MovieDetails = styled.div`
   }
 `;
 
-export const Message = styled.div``;
+export const Alert = styled.div`
+  width: 100%;
+  border: 1px solid ${borderColor};
+  background: ${bgColor};
+  padding: 20px;
+  border-radius: 3px;
+  color: ${fontColor};
+
+  ${props =>
+    props.danger &&
+    css`
+      border: 1px solid #db2828;
+      color: #db2828;
+      background: #ffecde;
+    `};
+`;
