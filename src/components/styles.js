@@ -30,7 +30,7 @@ export const Input = styled.input`
   box-shadow: none;
   outline: none;
   border: 1px solid #e7e7e7;
-  width: 200px;
+  width: 300px;
   font-size: 18px;
 
   &:focus {
@@ -119,4 +119,41 @@ export const Alert = styled.div`
       color: #db2828;
       background: #ffecde;
     `};
+`;
+
+export const SortItem = styled.span`
+  color: white;
+  background: #90caf9;
+  margin-right: 15px;
+  padding: 5px 12px 5px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  ${props =>
+    props.active &&
+    css`
+      background: #42a5f5;
+    `};
+
+  &::after {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    content: '';
+    position: relative;
+
+    ${props =>
+      props.asc
+        ? css`
+            border-top: 4px solid #2e2e2e;
+            top: 11px;
+            right: -4px;
+          `
+        : css`
+            border-bottom: 4px solid #2e2e2e;
+            top: -10px;
+            right: -4px;
+          `};
+  }
 `;
