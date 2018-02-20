@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://mickeeri.github.io/omdb-search",
   "dependencies": {
+    "axios": "^0.18.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "gh-pages": "^1.1.0",
@@ -12,7 +13,6 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1",
     "react-test-renderer": "^16.2.0",
-    "so-fetch-js": "^0.3.0",
     "styled-components": "^3.1.6",
     "styled-media-query": "^2.0.2"
   },

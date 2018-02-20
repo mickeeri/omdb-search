@@ -1,5 +1,5 @@
-import fetch from 'so-fetch-js';
 import { stringify } from 'query-string';
+import { get } from 'axios';
 
 const API_URL = 'https://www.omdbapi.com/';
 
@@ -10,11 +10,13 @@ export async function fetchMovies(query) {
     type: 'movie',
   };
 
-  const response = await fetch(`${API_URL}?${stringify(queryStrings)}`);
+  try {
+    const response = await get(`${API_URL}?${stringify(queryStrings)}`, {
+      timeout: 5000,
+    });
 
-  if (response.isError) {
-    throw new Error(response);
+    return response.data.Search || [];
+  } catch (ex) {
+    throw new Error(ex);
   }
-
-  return response.data.Search || [];
 }

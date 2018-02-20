@@ -28,21 +28,29 @@ class MovieFinder extends Component {
       return;
     }
 
-    this.setState({ ...state, isFetching: true, movies: [] });
+    this.setState({
+      ...state,
+      isFetching: true,
+      noResult: false,
+    });
 
     try {
       const movies = await fetchMovies(query);
+
       this.setState({
         ...state,
         movies: movies,
         isFetching: false,
         noResult: !movies.length,
+        order: { title: titleDefaultOrder, year: yearDefaultOrder },
+        errorMessage: '',
       });
     } catch (ex) {
       this.setState({
         ...state,
         isFetching: false,
         errorMessage: 'Search failed',
+        movies: [],
       });
     }
   };
