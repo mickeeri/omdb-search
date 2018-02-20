@@ -35,8 +35,9 @@ export const Input = styled.input`
   box-shadow: none;
   outline: none;
   border: 1px solid #e7e7e7;
-  width: 80%;
   font-size: 18px;
+  min-width: 0;
+  flex: 4;
 
   &:focus {
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
@@ -46,7 +47,6 @@ export const Input = styled.input`
 
 export const SearchButton = styled.button`
   margin-left: 2px;
-  padding: 10px 40px;
   cursor: pointer;
   background: #15cd72;
   border: 0;
@@ -56,6 +56,7 @@ export const SearchButton = styled.button`
   transition: opacity 0.4s;
   font-size: 18px;
   white-space: nowrap;
+  flex: 1;
 
   &:hover {
     background: #0cb863;
