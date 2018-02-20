@@ -102,7 +102,7 @@ class MovieFinder extends Component {
 
     return (
       <div>
-        <Header>OMDB movie search</Header>
+        <Header>OMDb API Search</Header>
         <Filter onSearch={this.handleSearch} isFetching={isFetching} />
         {movies.length ? (
           <Fragment>
