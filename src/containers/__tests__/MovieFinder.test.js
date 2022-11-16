@@ -4,30 +4,6 @@ import MovieFinder from '../MovieFinder';
 import { fetchMovies } from '../../services/api';
 import MovieList from '../../components/MovieList';
 
-jest.mock('../../services/api', () => ({
-  fetchMovies: jest.fn(query => {
-    if (!query) {
-      throw new Error();
-    }
-
-    if (query === 'godfather') {
-      return [
-        {
-          Title: 'The Godfather',
-          Year: '1972',
-          imdbID: 'tt0068646',
-        },
-      ];
-    }
-
-    return [];
-  }),
-}));
-
-beforeEach(() => {
-  jest.clearAllMocks();
-});
-
 describe('handleSearch', () => {
   const query = 'godfather';
   const movieFinder = shallow(<MovieFinder />);
