@@ -112,14 +112,10 @@ class MovieFinder extends Component {
         ) : (
           ''
         )}
-        {noResult && (
-          <Alert>
-            <span>No result</span>
-          </Alert>
-        )}
+        {noResult && <Alert role="alert">No result</Alert>}
         {errorMessage && (
-          <Alert danger>
-            <span>{errorMessage}</span>
+          <Alert role="alert" danger>
+            {errorMessage}
           </Alert>
         )}
       </div>

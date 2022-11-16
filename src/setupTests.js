@@ -1,28 +1,15 @@
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import '@testing-library/jest-dom/extend-expect';
 
-configure({ adapter: new Adapter() });
+import { server } from './mocks';
 
-jest.mock('./services/api', () => ({
-  fetchMovies: jest.fn(query => {
-    if (!query) {
-      throw new Error();
-    }
-
-    if (query === 'godfather') {
-      return [
-        {
-          Title: 'The Godfather',
-          Year: '1972',
-          imdbID: 'tt0068646',
-        },
-      ];
-    }
-
-    return [];
-  }),
-}));
+beforeAll(() => {
+  server.listen();
+});
 
 afterEach(() => {
-  jest.clearAllMocks();
+  server.resetHandlers();
+});
+
+afterAll(() => {
+  server.close();
 });
