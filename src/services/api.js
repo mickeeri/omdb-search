@@ -1,7 +1,7 @@
 import { stringify } from 'query-string';
 import { get } from 'axios';
 
-const API_URL = 'https://www.omdbapi.com/';
+export const API_URL = 'https://www.omdbapi.com/';
 
 export async function fetchMovies(query) {
   const queryStrings = {

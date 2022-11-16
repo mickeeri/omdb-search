@@ -25,7 +25,8 @@ class Filter extends Component {
         <Input
           value={query}
           onChange={this.handleChange}
-          placeholder="Enter searchword"
+          placeholder="Enter search word"
+          aria-label="Enter search word"
         />
         <SearchButton type="submit" disabled={isFetching}>
           {isFetching ? 'Searching ...' : 'Search'}
