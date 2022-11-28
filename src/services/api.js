@@ -15,7 +15,7 @@ export async function fetchMovies(query) {
   };
 
   try {
-    await delay();
+    // await delay();
 
     const response = await get(`${API_URL}?${stringify(queryStrings)}`, {
       timeout: 5000,
