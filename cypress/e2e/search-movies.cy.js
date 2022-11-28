@@ -1,14 +1,12 @@
-it('shows movies that I searched for in a list', () => {
+it('shows the movie I searched for in a list', () => {
   cy.visit('/');
 
-  cy.findByRole('textbox', { name: /search/i }).type('godfather');
-  cy.findByRole('button', { name: /search/i }).click();
+  cy.findByRole('textbox', { name: /search/i }).type('battleship potemkin');
+  const submitButton = cy.findByRole('button', { name: /search/i });
 
-  cy.findAllByRole('listitem').then(items => {
-    const [itemOne, itemTwo, itemThree] = items;
+  submitButton.click();
 
-    expect(itemOne).to.contain.text('The Godfather');
-    expect(itemTwo).to.contain.text('The Godfather Part II');
-    expect(itemThree).to.contain.text('The Godfather Part III');
-  });
+  submitButton.should('have.text', 'Searching ...');
+
+  cy.findByRole('listitem').should('contain.text', 'Battleship Potemkin');
 });

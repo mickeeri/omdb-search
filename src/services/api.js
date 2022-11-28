@@ -3,6 +3,10 @@ import { get } from 'axios';
 
 export const API_URL = 'https://www.omdbapi.com/';
 
+function delay(ms = 1500) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export async function fetchMovies(query) {
   const queryStrings = {
     apikey: '901124cd',
@@ -11,6 +15,8 @@ export async function fetchMovies(query) {
   };
 
   try {
+    await delay();
+
     const response = await get(`${API_URL}?${stringify(queryStrings)}`, {
       timeout: 5000,
     });
